@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<script type="text/javascript">
+    function hello() {
+        var forms = document.forms["f1"]
+        var product_id = $("#product_id").val();
+        var quantity_of_cart_item = $("#quantity").val();
+        var cart_id = $("#cart_id").val();
+        console.log(product_id);
+        console.log(quantity_of_cart_item)
+        console.log(cart_id);
+        $.ajax({
+        url: '/addCartItem',
+        type: 'POST',
+        cache: false,
+        data: { quantity_of_cart_item, cart_id, product_id },
+        success: function (data) {
+            window.location.href = "/checkout"
+        }
+        , error: function (jqXHR, textStatus, err) {
+            alert('text status ' + textStatus + ', err ' + err)
+        }
+        })
+    }
+                  
+</script>
+<body>
+    <form name="f1" action="#" method="POST">
+       product_id<input type="text" name = product_id id = product_id>
+        quantity<input type="text" name = quantity id = quantity>
+       cart_id <input type="text" name = cart_id id = cart_id>
+        <input type="button" value="ADD TO CART" onclick="hello()">
+    </form>
+</body>
+</html>

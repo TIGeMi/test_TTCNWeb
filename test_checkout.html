@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% for(i=0;i<listCartItems.length;i++) { %>
+    <h2>SẢN PHẨM </h2>
+    Hình ảnh <br>
+    Tên sản phẩm: <%= listCartItems[i].product_name %> <br>
+    Giá:  <%= listCartItems[i].sale_price %> <br>
+    Số lượng:   <%=quantity[i]  %> <br>
+    <% }  %> 
+</body>
+</html>
